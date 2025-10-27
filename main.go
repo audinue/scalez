@@ -11,18 +11,6 @@ import (
 	"github.com/audinue/scalez/namedargs"
 )
 
-func createContainer(args map[string]string) (*Container, error) {
-	id, ok := args["container"]
-	if !ok {
-		return nil, fmt.Errorf("missing container")
-	}
-	container, err := NewContainer(id)
-	if err != nil {
-		return nil, err
-	}
-	return container, nil
-}
-
 func main() {
 	log.SetFlags(log.Ltime | log.Llongfile)
 	args, err := namedargs.ParseArgs()
