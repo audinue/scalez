@@ -1,0 +1,13 @@
+{
+  "image": "golang:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.5": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.Go"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+networks:
+  test:
+    external: false
+
+services:
+  scalez:
+    networks:
+      test:
+    build: .
+    image: audinue/scalez
+    ports:
+      - 3000:3000
+    command:
+      - target=hello:3000
+      - timeout=10s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  hello:
+    container_name: hello
+    networks:
+      test:
+    image: audinue/ws
