@@ -24,6 +24,7 @@ func getIdByHostname(apiClient *client.Client, hostname string) (string, error) 
 			inspect, err := apiClient.ContainerInspect(context.Background(), container.ID)
 			if err != nil {
 				log.Println(err)
+				return
 			}
 			mutex.Lock()
 			defer mutex.Unlock()
