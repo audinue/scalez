@@ -49,6 +49,9 @@ func main() {
 		OnServe: func() error {
 			if !started.Load() {
 				mutex.Lock()
+				if started.Load() {
+					return nil
+				}
 				defer mutex.Unlock()
 				err := container.Start()
 				if err != nil {
